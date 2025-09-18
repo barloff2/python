@@ -65,4 +65,4 @@ print(elemento)
 
 lista = [1, 2, 3, 4, 5, 6]
 resultado = lista[-4::-1] + lista[3:]
-print(lista_revez)
+print(resultado)
