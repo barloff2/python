@@ -110,7 +110,8 @@ def mostrar_puntaje(x, y):
 
 # game over función
 def texto_final():
-    mi_fuente_final = fuente_final.render('JUEGO TERMINADO', True, (255, 255, 255))
+    mi_fuente_final = fuente_final.render('JUEGO TERMINADO',
+                                          True, (255, 255, 255))
     pantalla.blit(mi_fuente_final, (75, 200))
 
 
@@ -187,7 +188,6 @@ while se_ejecuta:
     if bala_visible:
         disparar_bala(bala_x, bala_y)
         bala_y -= bala_y_cambio
-    
     # Pintar al jugador
     jugador(jugador_x, jugador_y)
 
