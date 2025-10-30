@@ -42,3 +42,22 @@ parrafo_especial = sopa.select('p')[3].getText()
 # print(parrafo_especial)
 
 '''Extraer una clase completa'''
+
+barra_lateral = sopa.select('.sidebar-container')
+# print(barra_lateral)
+
+'''Extraer imagenes'''
+
+url = ('https://www.escueladirecta.com/l/products?sortKey=name&sortDirection=asc&page=1')
+
+resultado2 = requests.get(url, verify=False)
+sopa = bs4.BeautifulSoup(resultado2.text, 'lxml')
+
+# Obtener con una clase con nombres separados.
+imagenes = sopa.find_all("img", class_="ProductImage object-cover w-full aspect-video")[0]['src']
+
+imagen_curso = requests.get(imagenes)
+
+f = open('mi_imagen.jpg', 'wb')
+f.write(imagen_curso.content)
+f.close()
