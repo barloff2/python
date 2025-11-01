@@ -1,6 +1,5 @@
 '''Importar para utilizar matplotlib'''
 
-from turtle import color
 import matplotlib.pyplot as plt
 import numpy as np
 
