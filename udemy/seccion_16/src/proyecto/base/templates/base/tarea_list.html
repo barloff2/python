@@ -1,40 +1,51 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de pendientes</title>
-</head>
-<body>
-    {% if request.user.is_authenticated %}
-        <p>{{request.user}}</p>
-        <form method="post" action="{%url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit"> Salir </button>
-        </form>
-    {% else %}
-        <a href="{%url 'login'%}">Ingresar</a>
-    {% endif %}
-    <h1>Lista de pendientes</h1>
-    <a href="{% url 'crear-tarea' %}">Crear Nueva Tarea</a>
-    <table>
-        <tr>
-            <th>Elementos</th>
-            <th></th>
-            <th></th>
-        </tr>
-        
-        {% for tarea in tareas %}
+{% extends 'base/principal.html' %}
+{% block content %}
 
-        <tr>
-            <td>{{tarea.titulo}}</td>
-            <td><a href="{% url 'tarea' tarea.id %}">Ver</a></td>
-            <td><a href="{% url 'editar-tarea' tarea.id %}">Editar</a></td>
-            <td><a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar</a></td>
-        </tr>
+    <div class="barra-superior">
+        <div>
+            <h1>Hola {{request.user|title}}</h1>
+            <h3 class="h3-encabezado"> Tienes <i>{{count}}</i> tarea{{count|pluralize}} incompleta{{count|pluralize}}</h3>
+        </div>
+        {% if request.user.is_authenticated %}
+            <form method="post" action="{%url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit"> Salir </button>
+            </form>
+        {% else %}
+            <a href="{%url 'login'%}">Ingresar</a>
+        {% endif %}
+    </div>
+    <div id="envoltorio-agregar-buscar">
+        <form method="get">
+            <input type="text" name="area-buscar" value="{{valor_buscado}}">
+            <input class='boton' type="submit" value="Buscar">
+        </form>
+        <a id="enlace-agregar" href="{% url 'crear-tarea' %}">&#x271A;</a>
+    </div>
+    
+
+    <div class="envoltorio-items-tarea">
+        {% for tarea in tareas %}
+        
+        <div class="envoltorio-tarea">
+            {% if tarea.completo %}
+            <div class="titulo-tarea">
+                <div class="icono-tarea-completa"></div>
+                <i><s><a href="{% url 'editar-tarea' tarea.id %}">{{tarea}}</a></s></i>   
+            </div>
+            <a class="enlace-eliminar" href="{% url 'eliminar-tarea' tarea.id%}">&#10060;</a>
+            {% else %}
+            <div class="titulo-tarea">
+                <div class="icono-tarea-incompleta"></div>
+                <a href="{% url 'editar-tarea' tarea.id %}">{{tarea}}</a>
+            </div>
+            <a class="enlace-eliminar" href="{% url 'eliminar-tarea' tarea.id%}">&#10060;</a>
+            {% endif %}
+        </div>
+
         {% empty %}
             <h3>No hay elementos en esta lista</h3>
         {% endfor %}
-    </table>
-</body>
-</html>
+    </div>
+
+{% endblock content %}

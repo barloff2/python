@@ -1,0 +1,147 @@
+body{
+    background-color: #F3F4F6;
+    font-family: "Abel", sans-serif;
+    padding-top: 60px;
+}
+.container{
+    max-width: 550px;
+    margin: auto;
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 13px rgba(0, 0, 0, 0.21);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Lato", sans-serif;
+    font-style: italic;
+}
+
+a, p{
+    color: #3B82F6
+}
+
+.h3-encabezado{
+    margin: 0;
+}
+
+.barra-superior{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(90deg, #1E3A8A, #2563EB, #60A5FA);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.barra-superior button{
+    background-color: #8B5CF6;
+    color: white;
+    border-radius: 5px;
+    width: 60px;
+}
+
+.barra-superior a{
+    color: white;
+    text-decoration: none;
+}
+
+.barra-superior button:hover {
+  background-color: #7C3AED
+}
+
+.envoltorio-tarea{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-top: 1px solid rgb(225, 225, 225);
+}
+
+.titulo-tarea{
+    display: flex;
+}
+
+.titulo-tarea a {
+    text-decoration: none;
+    color: #4b5156;
+    margin-left: 10px;
+}
+
+.icono-tarea-completa{
+    height: 20px;
+    width: 20px;
+    background-color: rgb(105, 162, 105);
+    border-radius: 50px;
+}
+
+.icono-tarea-incompleta{
+    height: 20px;
+    width: 20px;
+    background-color: rgb(218, 218, 218);
+    border-radius: 50px;
+}
+
+.enlace-eliminar{
+    text-decoration: none;
+    font-weight: 900;
+    color: #ea4220;
+    font-size: 22px;
+    line-height: 0;
+}
+
+#envoltorio-agregar-buscar form{
+    margin-top: 20px;
+    display: flex;
+}
+
+#envoltorio-agregar-buscar{
+    background-color: rgb(219, 219, 221);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#enlace-agregar{
+    color: green;
+    text-decoration: none;
+    font-size: 42px;
+    text-shadow: 1px 1px #81413b;
+}
+
+input[type=text], input[type=password], textarea{
+    border: 1px solid #8B5CF6;
+    border-radius: 5px;
+    padding: 10px;
+    width: 90%;
+}
+
+label{
+    padding-top: 10px !important;
+    display: block;
+}
+
+
+.boton{
+    border: 1px solid #7C3AED;
+    background-color: #8B5CF6;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cuerpo-tarjeta{
+    padding: 20px;
+}
+
+.cuerpo-tarjeta a{
+    text-decoration: none;
+    color: red;
+}
+
+.cuerpo-tarjeta input{
+    margin-top: 10px;
+}
